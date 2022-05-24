@@ -1,2 +1,2 @@
-# test-codesandbox
-Created with CodeSandbox React テンプレート
+# codesandboxのReact テンプレート
+Created with CodeSandbox 
