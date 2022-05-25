@@ -2,3 +2,38 @@
   font-family: sans-serif;
   text-align: center;
 }
+
+button {
+  background: white;
+  padding: 15px;
+  padding-right: 20px;
+  padding-left: 20px;
+  font-size: 32px;
+  border: 1px solid #999;
+  font-weight: bold;
+  line-height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  height: 64px;
+  width: 64px;
+  float: left;
+  cursor: pointer;
+}
+
+.status {
+  margin-bottom: 10px;
+  font-size: large;
+}
+
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.board {
+  width: 192px;
+  margin: 0 auto;
+}
