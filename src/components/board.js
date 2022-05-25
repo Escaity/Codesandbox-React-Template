@@ -4,13 +4,13 @@ import { useState } from "react";
 
 export const Board = () => {
   const [xIsNext, setTurn] = useState(true);
+  const [place, setPlace] = useState(0);
   const [squares, setSquare] = useState(Array(9).fill(null));
-
   const RenderSquare = ({ i }) => {
     return <Square value={squares[i]} onClick={() => handleClick(i)} />;
   };
-
   const handleClick = (i) => {
+    setPlace(() => i);
     const updatedSquares = squares.slice();
     if (calculateWinner(squares) || squares[i]) {
       return;
@@ -29,7 +29,12 @@ export const Board = () => {
   } else {
     statusMessage = `Next player: ${xIsNext ? "X" : "O"}`;
   }
-
+  let placedMassage;
+  if (squares.filter((block) => block === null).length !== 9) {
+    placedMassage = `${!xIsNext ? "X" : "O"} Placed [${place % 3},${Math.floor(
+      place / 3
+    )}]`;
+  }
   return (
     <>
       <div className="status">{statusMessage}</div>
@@ -50,6 +55,7 @@ export const Board = () => {
           <RenderSquare i={8} />
         </div>
       </div>
+      <div className="status">{placedMassage}</div>
     </>
   );
 };
